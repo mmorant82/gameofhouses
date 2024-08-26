@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Creation - Life Scenarios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('characterbackround.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+        .scenario-container {
+            max-width: 800px;
+            margin: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+        .scenario-container h2 {
+            text-align: center;
+        }
+        .choices {
+            margin-top: 20px;
+        }
+        .choice {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+        }
+        .choice:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="scenario-container">
+        <h2 id="scenarioTitle">Scenario Title</h2>
+        <p id="scenarioDescription">Scenario description goes here...</p>
+        <div class="choices">
+            <button class="choice" id="choice1">Choice 1</button>
+            <button class="choice" id="choice2">Choice 2</button>
+            <button class="choice" id="choice3">Choice 3</button>
+        </div>
+    </div>
+
+    <script src="scenarioSelection.js"></script>
+</body>
+</html>
