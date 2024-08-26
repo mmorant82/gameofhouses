@@ -1,0 +1,37 @@
+<div class="form-container">
+    <h1>Character Details</h1>
+    <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" placeholder="Enter first name">
+    </div>
+    <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" disabled>
+    </div>
+    <div class="form-group">
+        <label for="sex">Sex:</label>
+        <select id="sex">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="birthOrder">Birth Order:</label>
+        <select id="birthOrder">
+            <option value="firstborn">First Born (Easiest)</option>
+            <option value="secondborn">Second Born</option>
+            <option value="thirdborn">Third Born (Hardest)</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <input type="checkbox" id="backstoryCheck">
+        <label for="backstoryCheck">Write a Backstory</label>
+    </div>
+    <div class="form-group" id="backstoryGroup" style="display:none;">
+        <label for="backstory">Backstory (2000 characters max):</label>
+        <textarea id="backstory" maxlength="2000" placeholder="Write your character's backstory..."></textarea>
+    </div>
+    <button class="next-button" id="nextButton">Next</button>
+</div>
+
+<script src="characterDetails.js"></script>
