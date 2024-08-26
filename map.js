@@ -2,12 +2,16 @@ const canvas = document.getElementById('mapCanvas');
 const ctx = canvas.getContext('2d');
 
 // Load the map image
-const worldmap.jpg = new Image();
-worldmap.jpg.src = 'path_to_your_map_image.png'; // Replace with the path to your map image
+const mapImage = new Image();
+mapImage.src = 'worldmap.jpg';  // Replace with the correct image path
 
-worldmap.jpg.onload = function() {
-    ctx.drawImage(worldmap.jpg, 0, 0, canvas.width, canvas.height);
+mapImage.onload = function() {
+    ctx.drawImage(mapImage, 0, 0, canvas.width, canvas.height);
     drawRegions();
+};
+
+mapImage.onerror = function() {
+    console.error('Failed to load the map image.');
 };
 
 // Define regions (for example, rectangular regions)
