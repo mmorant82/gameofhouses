@@ -29,15 +29,25 @@
         .summary-container p {
             margin: 10px 0;
         }
+        .trait-category {
+            margin-bottom: 20px;
+        }
+        .trait-category h3 {
+            margin-bottom: 10px;
+        }
         .trait-list {
             list-style-type: none;
             padding: 0;
         }
         .trait-list li {
-            background-color: #007bff;
             padding: 5px 10px;
             margin: 5px 0;
             border-radius: 5px;
+            display: inline-block;
+            background-color: #007bff;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            font-size: 1em; /* Base font size, this will be adjusted by weight */
         }
         .start-button {
             display: block;
@@ -60,8 +70,20 @@
         <p><strong>Name:</strong> <span id="characterName"></span></p>
         <p><strong>Sex:</strong> <span id="characterSex"></span></p>
         <p><strong>Birth Order:</strong> <span id="characterBirthOrder"></span></p>
-        <p><strong>Traits:</strong></p>
-        <ul id="traitList" class="trait-list"></ul>
+        
+        <div class="trait-category">
+            <h3>Personality</h3>
+            <ul id="personalityTraits" class="trait-list"></ul>
+        </div>
+        <div class="trait-category">
+            <h3>Skills</h3>
+            <ul id="skillsTraits" class="trait-list"></ul>
+        </div>
+        <div class="trait-category">
+            <h3>Background</h3>
+            <ul id="backgroundTraits" class="trait-list"></ul>
+        </div>
+        
         <button id="startButton" class="start-button">Start Your Journey</button>
     </div>
 
