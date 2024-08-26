@@ -100,9 +100,9 @@ displayRegions();
 // Handle Next button click
 nextButton.addEventListener('click', () => {
     if (selectedRegion) {
-        // Move to the next screen, passing the selectedRegion to the next step
-        // You can store the selectedRegion in localStorage or pass it as needed
-        console.log('Selected Region:', selectedRegion);
-        // Redirect to the next screen or load the next section
+        // Store the selected region name in localStorage
+        localStorage.setItem('selectedRegion', selectedRegion.name);
+        // Redirect to the character details screen
+        window.location.href = 'character_details.html';
     }
 });

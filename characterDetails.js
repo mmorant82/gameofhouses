@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const lastNameInput = document.getElementById('lastName');
-    const region = localStorage.getItem('selectedRegion'); // Assuming region is stored in localStorage
+    const region = localStorage.getItem('selectedRegion'); // Get the selected region from localStorage
     if (region) {
         lastNameInput.value = region; // Set last name based on selected region
     }
