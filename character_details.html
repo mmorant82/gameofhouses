@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Creation - Character Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('characterbackround.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: red;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f4f4f4;
+            color: black;
+        }
+        .form-group textarea {
+            height: 100px;
+            resize: none;
+        }
+        .form-group input[type="checkbox"] {
+            width: auto;
+        }
+        .next-button {
+            display: block;
+            width: 100%;
+            max-width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Character Details</h1>
+    <div class="form-container">
+        <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" placeholder="Enter first name">
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" disabled>
+        </div>
+        <div class="form-group">
+            <label for="sex">Sex:</label>
+            <select id="sex">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="birthOrder">Birth Order:</label>
+            <select id="birthOrder">
+                <option value="firstborn">First Born (Easiest)</option>
+                <option value="secondborn">Second Born</option>
+                <option value="thirdborn">Third Born (Hardest)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="checkbox" id="backstoryCheck">
+            <label for="backstoryCheck">Write a Backstory</label>
+        </div>
+        <div class="form-group" id="backstoryGroup" style="display:none;">
+            <label for="backstory">Backstory (2000 characters max):</label>
+            <textarea id="backstory" maxlength="2000" placeholder="Write your character's backstory..."></textarea>
+        </div>
+        <button class="next-button" id="nextButton">Next</button>
+    </div>
+
+    <script src="characterDetails.js"></script>
+</body>
+</html>
