@@ -4,14 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Site with Background Audio</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .youtube-audio {
+            display: none; /* Hide the iframe as we only want the audio */
+        }
+
+        .nav-bar {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        #content {
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
     <!-- Persistent iframe for background audio -->
-    <iframe class="youtube-audio" src="https://www.youtube.com/embed/jM9WA6wwbXc?autoplay=1&loop=1&playlist=YOUR_VIDEO_ID" allow="autoplay" style="display:none;"></iframe>
+    <iframe class="youtube-audio" src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1&loop=1&playlist=YOUR_VIDEO_ID" allow="autoplay"></iframe>
     
-    <!-- Content changes here without affecting the iframe -->
+    <!-- Navigation bar -->
+    <div class="nav-bar">
+        <a href="#" onclick="loadPage('characterSummary.html')">Character Summary</a>
+        <a href="#" onclick="loadPage('character_creation.html')">Character Creation</a>
+        <a href="#" onclick="loadPage('scenarioSelection.html')">Scenario Selection</a>
+    </div>
+
+    <!-- Content will be dynamically loaded here -->
     <div id="content">
-        <!-- Content will be dynamically loaded here -->
+        <!-- Initial content load can be placed here, or loaded dynamically -->
     </div>
 
     <script>
@@ -25,11 +60,9 @@
         }
 
         // Example: Load the first page on initial load
-        loadPage('characterSummary.html');
-
-        // You can create navigation buttons to load different pages
-        // For example:
-        // loadPage('character_creation.html');
+        window.onload = function() {
+            loadPage('characterSummary.html');
+        };
     </script>
 </body>
 </html>
