@@ -377,7 +377,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('characterTraits', JSON.stringify(characterTraits));
         alert('Character creation is complete!');
         // Redirect to the game start or summary page
-        window.location.href = 'game_start.html';
+        window.location.href = 'characterSummary.html';
     }
 
     document.getElementById('choice1').addEventListener('click', () => handleChoice(0));
