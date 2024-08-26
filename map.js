@@ -1,18 +1,26 @@
 const canvas = document.getElementById('mapCanvas');
 const ctx = canvas.getContext('2d');
 
+// Function to resize the canvas to fill the window
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    drawMap();
+}
+
 // Load the map image
 const mapImage = new Image();
-mapImage.src = 'worldmap.jpg';  // Replace with the correct image path
+mapImage.src = 'worldmap.jpg';  // Ensure the correct image path
 
 mapImage.onload = function() {
-    ctx.drawImage(mapImage, 0, 0, canvas.width, canvas.height);
-    drawRegions();
+    drawMap();
 };
 
-mapImage.onerror = function() {
-    console.error('Failed to load the map image.');
-};
+function drawMap() {
+    // Draw the image to fill the entire canvas
+    ctx.drawImage(mapImage, 0, 0, canvas.width, canvas.height);
+    drawRegions();
+}
 
 // Define regions (for example, rectangular regions)
 const regions = [
@@ -28,7 +36,7 @@ function drawRegions() {
     });
 }
 
-// Add event listener for mouse clicks
+// Handle canvas clicks
 canvas.addEventListener('click', function(event) {
     const rect = canvas.getBoundingClientRect();
     const x = event.clientX - rect.left;
@@ -41,3 +49,9 @@ canvas.addEventListener('click', function(event) {
         }
     });
 });
+
+// Ensure the canvas is resized when the window size changes
+window.addEventListener('resize', resizeCanvas);
+
+// Initial resize to set up the canvas size
+resizeCanvas();
