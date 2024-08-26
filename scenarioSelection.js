@@ -345,14 +345,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         // Add more scenarios as needed to reach 100
     ];
-    
+// Function to shuffle an array
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    // Shuffle scenarios array
+    shuffleArray(scenarios);
+
+    // Select the first 10 scenarios from the shuffled array
+    const selectedScenarios = scenarios.slice(0, 10);
 
     let currentScenarioIndex = 0;
-    const totalScenarios = 10; // Total number of scenarios to present
     const characterTraits = [];
 
     function loadScenario(index) {
-        const scenario = scenarios[index];
+        const scenario = selectedScenarios[index];
         document.getElementById('scenarioTitle').textContent = scenario.title;
         document.getElementById('scenarioDescription').textContent = scenario.description;
         document.getElementById('choice1').textContent = scenario.choices[0].text;
@@ -361,12 +372,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function handleChoice(choiceIndex) {
-        const selectedTraits = scenarios[currentScenarioIndex].choices[choiceIndex].traits;
+        const selectedTraits = selectedScenarios[currentScenarioIndex].choices[choiceIndex].traits;
         characterTraits.push(...selectedTraits);
 
         currentScenarioIndex++;
-        if (currentScenarioIndex < totalScenarios) {
-            loadScenario(currentScenarioIndex % scenarios.length);
+        if (currentScenarioIndex < selectedScenarios.length) {
+            loadScenario(currentScenarioIndex);
         } else {
             finalizeCharacter();
         }
@@ -376,7 +387,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Store the traits in localStorage or proceed to the next game phase
         localStorage.setItem('characterTraits', JSON.stringify(characterTraits));
         alert('Character creation is complete!');
-        // Redirect to the game start or summary page
+        // Redirect to the character summary screen
         window.location.href = 'characterSummary.html';
     }
 
