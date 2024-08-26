@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('characterbackround.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+        .summary-container {
+            max-width: 600px;
+            margin: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+        .summary-container h2 {
+            text-align: center;
+        }
+        .summary-container p {
+            margin: 10px 0;
+        }
+        .trait-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .trait-list li {
+            background-color: #007bff;
+            padding: 5px 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+        .start-button {
+            display: block;
+            width: 100%;
+            max-width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="summary-container">
+        <h2>Character Summary</h2>
+        <p><strong>Name:</strong> <span id="characterName"></span></p>
+        <p><strong>Sex:</strong> <span id="characterSex"></span></p>
+        <p><strong>Birth Order:</strong> <span id="characterBirthOrder"></span></p>
+        <p><strong>Traits:</strong></p>
+        <ul id="traitList" class="trait-list"></ul>
+        <button id="startButton" class="start-button">Start Your Journey</button>
+    </div>
+
+    <script src="characterSummary.js"></script>
+</body>
+</html>
