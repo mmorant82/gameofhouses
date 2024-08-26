@@ -7,7 +7,11 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-image: url('characterbackround.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
             margin: 0;
             padding: 20px;
         }
@@ -22,16 +26,20 @@
             margin: auto;
         }
         .region-card {
-            background-color: #fff;
+            background-color: rgba(0, 0, 0, 0.7);
             border: 1px solid #ccc;
             padding: 15px;
             border-radius: 5px;
             cursor: pointer;
             transition: transform 0.2s;
+            text-align: center;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
         }
         .region-card:hover {
             transform: scale(1.05);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
         .region-card h2 {
             margin-top: 0;
@@ -39,7 +47,7 @@
         .region-details {
             display: none;
             margin-top: 20px;
-            background-color: #fff;
+            background-color: rgba(0, 0, 0, 0.7);
             padding: 15px;
             border-radius: 5px;
             border: 1px solid #ccc;
