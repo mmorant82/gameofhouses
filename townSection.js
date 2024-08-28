@@ -1,5 +1,7 @@
 const canvas = document.getElementById('townCanvas');
 const ctx = canvas.getContext('2d');
+
+// Ensure canvas dimensions match the window size
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
@@ -23,8 +25,7 @@ const tiles = {
     stairsStone: 'stairsStone.png'
 };
 
-// Layout of the town section
-// Each entry corresponds to the tile that will be drawn
+// Adjust the map layout as necessary for better spacing
 const mapLayout = [
     ['roofLeft', 'roofHighGable', 'roofRight', null, 'stallRed', 'bench', 'tree'],
     ['wallArchTop', 'wall', 'wallArchTop', null, 'stallGreen', 'bench', 'tree'],
@@ -51,12 +52,16 @@ async function drawMap() {
         loadedTiles[key] = await loadImage(value);
     }
 
+    // Calculate the starting point for centering the map
+    const startX = (canvas.width - (mapLayout[0].length * tileSize)) / 2;
+    const startY = (canvas.height - (mapLayout.length * tileSize)) / 2;
+
     // Draw the map based on the layout
     mapLayout.forEach((row, rowIndex) => {
         row.forEach((tile, colIndex) => {
             if (tile) {
                 const img = loadedTiles[tile];
-                ctx.drawImage(img, colIndex * tileSize, rowIndex * tileSize, tileSize, tileSize);
+                ctx.drawImage(img, startX + colIndex * tileSize, startY + rowIndex * tileSize, tileSize, tileSize);
             }
         });
     });
