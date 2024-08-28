@@ -9,14 +9,20 @@ const tileSize = 64; // Assuming each tile is 64x64 pixels
 
 // Define the paths to the images (all in the root folder)
 const tiles = {
+    ground: 'ground.png', // Assume a ground tile without transparency
     wall: 'wall.png',
     roofLeft: 'roofLeft.png',
     roofRight: 'roofRight.png',
     tree: 'tree.png'
 };
 
-// Simple map layout for testing (just a few tiles placed next to each other)
-const mapLayout = [
+// Map layout with multiple layers
+const baseLayer = [
+    ['ground', 'ground', 'ground'],
+    ['ground', 'ground', 'ground']
+];
+
+const overlayLayer = [
     ['wall', 'wall', 'wall'],
     ['roofLeft', 'roofRight', 'tree']
 ];
@@ -39,14 +45,25 @@ async function drawMap() {
         loadedTiles[key] = await loadImage(value);
     }
 
-    // Draw the map based on the layout
-    mapLayout.forEach((row, rowIndex) => {
+    // Draw the base layer
+    baseLayer.forEach((row, rowIndex) => {
         row.forEach((tile, colIndex) => {
             if (tile) {
                 const img = loadedTiles[tile];
                 const x = colIndex * tileSize;
                 const y = rowIndex * tileSize;
-                console.log(`Drawing tile ${tile} at position (${x}, ${y})`);
+                ctx.drawImage(img, x, y, tileSize, tileSize);
+            }
+        });
+    });
+
+    // Draw the overlay layer
+    overlayLayer.forEach((row, rowIndex) => {
+        row.forEach((tile, colIndex) => {
+            if (tile) {
+                const img = loadedTiles[tile];
+                const x = colIndex * tileSize;
+                const y = rowIndex * tileSize;
                 ctx.drawImage(img, x, y, tileSize, tileSize);
             }
         });
