@@ -44,7 +44,10 @@ async function drawMap() {
         row.forEach((tile, colIndex) => {
             if (tile) {
                 const img = loadedTiles[tile];
-                ctx.drawImage(img, colIndex * tileSize, rowIndex * tileSize, tileSize, tileSize);
+                const x = colIndex * tileSize;
+                const y = rowIndex * tileSize;
+                console.log(`Drawing tile ${tile} at position (${x}, ${y})`);
+                ctx.drawImage(img, x, y, tileSize, tileSize);
             }
         });
     });
