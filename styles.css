@@ -5,10 +5,10 @@
 }
 
 body {
-  background-color: #333;
+  background-color: #2f2f2f;
 }
 
-#castleCanvas {
+#throneRoomCanvas {
   display: block;
-  background-color: #777;
+  background-color: #333333;
 }
